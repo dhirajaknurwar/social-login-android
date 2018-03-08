@@ -132,6 +132,8 @@ Step4: In Activity --On Button Click
  trueClient = new TrueClient(getApplicationContext(), iTrueCallback);
  trueClient.getTruecallerUserProfile(MainActivity.this);
 
+Video Link:  https://youtu.be/RW8uEncpSO8
+
 
 
 

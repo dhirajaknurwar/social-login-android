@@ -161,7 +161,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void success(Result<TwitterSession> twitterSessionResult) {
                         // Success
-                        Log.d("TWI", twitterSessionResult.data.getUserName()+ twitterSessionResult.data.getUserId());
+                        Toast.makeText(getApplicationContext(),"TWITTER SUCCESS: "+twitterSessionResult.data.getUserName()+ " \n"+twitterSessionResult.data.getUserId(),Toast.LENGTH_SHORT).show();
+                        Log.d("TWI", twitterSessionResult.data.getUserName()+ " "+twitterSessionResult.data.getUserId());
                     }
 
                     @Override
@@ -205,6 +206,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 if (object.has("email")) {
                                     email = object.getString("email");
                                     Log.v("Email", object.getString("email"));
+
                                 }
                                 try {
                                     photoUrl = new URL(
@@ -238,6 +240,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Log.i("Login" + "email", email);
             Log.i("Login" + "photoUrl", personPhotoUrl);
             //TODO making api call to SignUp
+
+            Toast.makeText(getApplicationContext(),"FB :LOGIN SUCCESS:"+email,Toast.LENGTH_SHORT).show();
         }
     }
     //END FACEBOOK LOGIN CODE//
@@ -296,6 +300,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void onApiSuccess(ApiResponse s) {
                         Log.d("LIRES", "" + s.getResponseDataAsJson());
+                        Toast.makeText(getApplicationContext(),"LI LOGIN SUCCESS: "+s.getResponseDataAsJson(),Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
@@ -366,8 +371,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void updateUI(GoogleSignInAccount account) {
-        if (account != null)
+        if (account != null) {
             Log.d("GPL", "" + account.getEmail());
+            Toast.makeText(getApplicationContext(),"GOOGLE LOGIN SUCCESS: "+account.getEmail(),Toast.LENGTH_SHORT).show();
+        }
     }
     ///////////END GOOGLE PLUS///////////
 
@@ -393,7 +400,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ITrueCallback iTrueCallback = new ITrueCallback() {
         @Override
         public void onSuccesProfileShared(@NonNull TrueProfile trueProfile) {
-            Log.d("SP", trueProfile.payload);
+            Log.d("SP", trueProfile.email);
+            Toast.makeText(getApplicationContext(),"TRUE CALLER LOGIN SUCCESS: "+trueProfile.email,Toast.LENGTH_SHORT).show();
+
         }
 
         @Override
