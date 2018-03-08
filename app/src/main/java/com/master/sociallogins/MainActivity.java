@@ -295,7 +295,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 apiHelper.getRequest(MainActivity.this, topCardUrl, new ApiListener() {
                     @Override
                     public void onApiSuccess(ApiResponse s) {
-                        Log.d("LIRES", "" + s);
+                        Log.d("LIRES", "" + s.getResponseDataAsJson());
                     }
 
                     @Override
