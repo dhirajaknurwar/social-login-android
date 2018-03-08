@@ -1,0 +1,10 @@
+<resources >
+    <string name="app_name">Social Logins</string>
+    <string name="facebook_login">Facebook Login</string>
+    <string name="google_plus_login">Google Plus Login</string>
+    <string name="linked_in_login">Linked In Login</string>
+    <string name="facebook_app_id">2000386016881585</string>
+    <string name="trucaller_login">TRUE CALLER LOGIN</string>
+    <string name="twitter_login">TWITTER LOGIN</string>
+    <string name="partnerKey">XJo1ccdfa4befb7a640a0bb1749577c897ad9</string>
+</resources>
