@@ -132,6 +132,47 @@ Step4: In Activity --On Button Click
  trueClient = new TrueClient(getApplicationContext(), iTrueCallback);
  trueClient.getTruecallerUserProfile(MainActivity.this);
 
+
+ SIGN IN WITH TWITTER
+
+ Step1: Login and create App through followed URL https://apps.twitter.com
+
+ Step: Fill the proper Details , Additional Permissions—Request email addresses from users
+
+ Step3: Copy Consumer key and Consumer Secret Key
+
+ In Activity:
+
+ /////START TWITTER LOGIN CODE///////
+ private void twitterInit(){
+
+     TwitterConfig config = new TwitterConfig.Builder(this)
+             .logger(new DefaultLogger(Log.DEBUG))
+             .twitterAuthConfig(new TwitterAuthConfig("kYeVdo3s3RV7WfDCS7f0SH1WG", "GGyGjaoYl3JobVOQ2pVof8DFt13XQ5f0JqmPDndp0Zw6EZetzU"))
+             .debug(true)
+             .build();
+     Twitter.initialize(config);
+     mTwitterAuthClient= new TwitterAuthClient();
+ }
+
+ Call Above method in On Create of Activity
+
+ mTwitterAuthClient.authorize(this, new com.twitter.sdk.android.core.Callback<TwitterSession>() {
+     @Override
+     public void success(Result<TwitterSession> twitterSessionResult) {
+         // Success
+         Toast.makeText(getApplicationContext(),"TWITTER SUCCESS: "+twitterSessionResult.data.getUserName()+ " \n"+twitterSessionResult.data.getUserId(),Toast.LENGTH_SHORT).show();
+         Log.d("TWI", twitterSessionResult.data.getUserName()+ " "+twitterSessionResult.data.getUserId());
+     }
+
+     @Override
+     public void failure(TwitterException e) {
+         e.printStackTrace();
+     }
+ });
+
+ Call Above method in On Click On Twitter Login Button
+
 Video Link:  https://youtu.be/RW8uEncpSO8
 
 
